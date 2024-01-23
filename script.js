@@ -1,5 +1,5 @@
-name = prompt("Input your name:");
+temp = prompt("Input your temperature in °C: ");
 
-say_hello = console.log("Hello,", name,"!",  "How are you?");
+temp_conversion = (temp * (9/5) + 32);
 
-console.log(say_hello);
+console.log("Result: ", temp_conversion);
