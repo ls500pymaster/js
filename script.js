@@ -1,5 +1,27 @@
-temp = prompt("Input your temperature in °C: ");
+// Fingers
 
-tempConversion = (temp * (9/5) + 32);
+const fingerNumber = +prompt("Type number of finger")
 
-console.log("Result: ", tempConversion);
+if (fingerNumber === 1) {
+    alert("Thumb")
+    }
+
+    if (fingerNumber === 2) {
+        alert("Pointer")
+    }
+
+    if (fingerNumber === 3) {
+        alert("Middle")
+    }
+
+    if (fingerNumber === 4) {
+        alert("Ring")
+    }
+
+    if (fingerNumber === 5) {
+        alert("Little")
+    }
+
+    else {
+        alert("Enter number from 1 to 5")
+    }
