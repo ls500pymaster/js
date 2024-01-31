@@ -1,17 +1,11 @@
-// Fingers
+// Leap year
 
-const fingerNumber = +prompt("Type number of finger");
+const leapYear = prompt("Please input year");
 
-if (fingerNumber === 1) {
-    alert("Thumb");
-} else if (fingerNumber === 2) {
-    alert("Pointer");
-} else if (fingerNumber === 3) {
-    alert("Middle");
-} else if (fingerNumber === 4) {
-    alert("Ring");
-} else if (fingerNumber === 5) {
-    alert("Little");
+if (leapYear % 400 === 0) {
+    alert("Leap year");
+} else if (leapYear % 4 === 0 && leapYear % 100 !== 0) {
+    alert("Leap year");
 } else {
-    alert("Enter number from 1 to 5");
+    alert("Not a leap year");
 }
