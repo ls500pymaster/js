@@ -1,18 +1,15 @@
-const arr = [2, 4, 5, 10, 22];
+let input = prompt("Enter your number");
+let num = parseInt(input);
 
-function removeElement(arr, elem, newElem) {
-    let found = false;
-    for (let i = 0; i < arr.length; i++) {
-        console.log(elem);
-        if (arr[i] === elem) {
-            arr.splice(i, 1, newElem);
-            found = true;
-            console.log(arr);
-        }
+if (!isNaN(num) && num >= 1 && num <= 50) {
+    let factorialResult = 1;
+    for (let i = 1; i <= num; i++ ) {
+        factorialResult *= i;
     }
-    if (found === false) {
-        return arr;
-    }
+    console.log(factorialResult);
 }
-removeElement(arr, 2, 777);
-console.log('arr ->', arr);
+else {
+    console.log("Input must be a number between 1 and 50.");
+}
+
+
