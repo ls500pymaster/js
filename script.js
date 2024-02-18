@@ -1,5 +1,5 @@
-name = prompt("Input your name:");
+const newArr = [false, 12, '23424', false, 324, '', true, null, 5, -0, 0, 9, undefined, NaN, 6.354, undefined, 7, null];
 
-say_hello = console.log("Hello,", name,"!",  "How are you?");
+const result = newArr.filter((elem) => Boolean(elem));
 
-console.log(say_hello);
+console.log(result);
