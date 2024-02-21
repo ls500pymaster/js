@@ -1,5 +1,15 @@
-const newArr = [false, 12, '23424', false, 324, '', true, null, 5, -0, 0, 9, undefined, NaN, 6.354, undefined, 7, null];
+function processNumber(num1, num2) {
+    if (num1 % 2 === 0 && num2 % 2 === 0) {
+        return num1* num2;
+    }
+    else if (num1 % 2 !== 0 && num2 % 2 !== 0) {
+        return num1 + num2;
+    }
+    else {
+        return num1 % 2 !== 0 ? num1 : num2;
+    }
+}
 
-const result = newArr.filter((elem) => Boolean(elem));
-
-console.log(result);
+console.log(processNumber(6, 8));
+console.log(processNumber(3, 5));
+console.log(processNumber(10, 7));
