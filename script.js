@@ -1,17 +1,19 @@
-const firstName = prompt("What is your name?");
-const age = parseInt(prompt("What is your age?"));
-const email = prompt("What is your email?");
+const name = prompt("Input name");
+const area = prompt("Input area");
+const population = prompt("Input population");
+const mainStreet = prompt("Input main street");
+const mayorsName = prompt("Input mayors name");
 
 
-const newUser = {
-    firstName: firstName,
-    age: age,
-    email: email,
+function showCity (name, area, population, mainStreet, mayorsName) {
+    const objCity = {
+        'Name': name,
+        'Area': area,
+        'Population': population,
+        'Main Street': mainStreet,
+        'Mayors Name': mayorsName,
+    }
+    console.log(objCity);
 }
 
-for (const property in newUser) {
-    console.log(`${property}: ${newUser[property]}`);
-}
-
-
-
+showCity(name, area, population, mainStreet, mayorsName);
