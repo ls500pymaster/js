@@ -11,7 +11,7 @@ function showCity (name, area, population, mainStreet, mayorsName) {
         'Area': area,
         'Population': population,
         'Main Street': mainStreet,
-        'Mayors Name': mayorsName,
+        'Mayor\'s Name': mayorsName,
     }
     console.log(objCity);
 }
