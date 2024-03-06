@@ -1,5 +1,22 @@
-name = prompt("Input your name:");
+const myArr = [3, 5, 6, 8, 11, 33, 45];
+const numSearch = 33;
 
-say_hello = console.log("Hello,", name,"!",  "How are you?");
+function binarySearch(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
 
-console.log(say_hello);
+    while (left <= right) {
+        const mid = Math.floor(left + right) / 2;
+        if (arr[mid] === target) {
+            return mid;
+        } else if (arr[mid] < target) {
+            return mid;
+        } else {
+            right = mid -1;
+        }
+    }
+    return -1;
+
+}
+
+const result = binarySearch(myArr, numSearch);
