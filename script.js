@@ -1,4 +1,4 @@
-function constructPerson(pName, pAge, pGender) {
+function ConstructPerson(pName, pAge, pGender) {
     this.name = pName;
     this.age = pAge;
     this.gender = pGender;
@@ -9,5 +9,5 @@ function constructPerson(pName, pAge, pGender) {
     }
 }
 
-const personOne = new constructPerson("Bill", "23", "Male");
-personOne.print();
+const person = new ConstructPerson("Bill", 23, "Male");
+person.print();
