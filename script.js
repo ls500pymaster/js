@@ -1,5 +1,13 @@
-name = prompt("Input your name:");
+function constructPerson(pName, pAge, pGender) {
+    this.name = pName;
+    this.age = pAge;
+    this.gender = pGender;
+    this.print = function (){
+        console.log("Name: ", pName);
+        console.log("Age: ", pAge);
+        console.log("Gender: ", pGender);
+    }
+}
 
-say_hello = console.log("Hello,", name,"!",  "How are you?");
-
-console.log(say_hello);
+const personOne = new constructPerson("Bill", "23", "Male");
+personOne.print();
