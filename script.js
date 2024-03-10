@@ -1,5 +1,7 @@
-name = prompt("Input your name:");
+const palChecker = function (word) {
+    const wordReverse = word.split("").reverse().join("");
+    return word === wordReverse;
+}
 
-say_hello = console.log("Hello,", name,"!",  "How are you?");
-
-console.log(say_hello);
+const enterWord = prompt("Enter your word: ")
+console.log(palChecker(enterWord));
