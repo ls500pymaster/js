@@ -1,30 +1,30 @@
-const list = document.createElement("ul");
-const tasks = [];
-
-function startNotepad() {
-    addTask();
-    createList(tasks);
+document.addEventListener("DOMContentLoaded", () =>{
+    const list = document.createElement("ul");
     document.body.append(list);
-}
 
-function addTask() {
-    while (true) {
-        const task = prompt("Enter your task");
-        if (task === null) {
-            break;
+    const addButton = document.createElement("button");
+    addButton.textContent = "Add task 🟢";
+    document.body.append(addButton);
+
+    addButton.addEventListener("click", () =>{
+        const taskText = prompt("Enter your task");
+        if (taskText) {
+            addTask(taskText);
         }
-        tasks.push(task);
-    }
-}
-
-function createList(tasks) {
-    tasks.forEach((task) => {
-        console.log(task);
-        const listItem = document.createElement("li");
-        listItem.textContent = task;
-        list.append(listItem);
     })
-}
 
-startNotepad();
+    function addTask(taskText) {
+        const task = document.createElement("li");
+        task.textContent = taskText;
 
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "❌";
+        deleteButton.onclick = function() {
+            task.remove();
+        };
+
+        task.append(deleteButton);
+        list.append(task);
+    }
+
+});
