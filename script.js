@@ -1,67 +1,58 @@
-document.addEventListener("DOMContentLoaded", () =>{
-    const list = document.createElement("ul");
+document.addEventListener("DOMContentLoaded", () => {
+    const tasksContainer = document.createElement("ul");
+    document.body.append(tasksContainer);
+    const addButton = document.createElement("button");
+    addButton.textContent = "Add Task 🟢";
+    document.body.append(addButton);
 
-    // Load tasks from localStorage or prompt the user for new tasks
     function loadTasks() {
-        const storedTasks = JSON.parse(localStorage.getItem('tasks'));
-        if (storedTasks && storedTasks.length > 0) {
-            list.innerHTML = '';
+        const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+        if (storedTasks.length > 0) {
             storedTasks.forEach(task => addTask(task));
         } else {
-            startNotepad();
+            askForNewTasks();
         }
     }
 
-    // Launching notepad
-    function startNotepad() {
+    function askForNewTasks() {
         let taskText;
         while ((taskText = prompt("Enter your task")) !== null) {
             if (taskText.trim() !== '') {
                 addTask(taskText);
-                saveTasksToStorage();
             }
         }
+        saveTasksToStorage();
     }
 
-    // Button for adding new task
-    const addButton = document.createElement("button");
-    addButton.textContent = "Add task 🟢";
-    document.body.append(addButton);
-
-    // Event listener on click to add task
-    addButton.addEventListener("click", () =>{
+    addButton.addEventListener("click", () => {
         const taskText = prompt("Enter your task");
-        if (taskText !== null && taskText.trim() !== '') {
+        if (taskText && taskText.trim() !== '') {
             addTask(taskText);
             saveTasksToStorage();
         }
-    })
+    });
 
-    // Add ul to the page
-    document.body.append(list);
-
-    // Function to add task to the list
     function addTask(taskText) {
-        const task = document.createElement("li");
-        task.textContent = taskText;
+        const taskItem = document.createElement("li");
+        taskItem.textContent = taskText;
 
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "❌";
-        deleteButton.onclick = function() {
-            task.remove();
+        deleteButton.addEventListener("click", () => {
+            taskItem.remove();
             saveTasksToStorage();
-        };
+        });
 
-        task.append(deleteButton);
-        list.append(task);
+        taskItem.append(deleteButton);
+        tasksContainer.appendChild(taskItem);
     }
 
-    // Save tasks to localStorage
     function saveTasksToStorage() {
-        const taskTexts = Array.from(list.children).map(task => task.textContent);
-        localStorage.setItem('tasks', JSON.stringify(taskTexts));
+        const tasks = Array.from(tasksContainer.children).map(taskItem => {
+            return taskItem.firstChild.textContent;
+        });
+        localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
-    // Load tasks from localStorage or start notepad
     loadTasks();
 });
